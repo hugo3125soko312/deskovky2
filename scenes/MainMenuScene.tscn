@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dckx7vgfru4g3"]
 
-[node name="scene2D" type="Node2D" unique_id=591760362]
+[node name="MainMenuScene" type="Node2D" unique_id=591760362]
 
 [node name="MainMenu" type="Control" parent="." unique_id=1159849700]
 layout_mode = 3
