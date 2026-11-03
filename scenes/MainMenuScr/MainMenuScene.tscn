@@ -1,16 +1,22 @@
 [gd_scene format=3 uid="uid://dj1ppn0iwi1fx"]
 
-[node name="MainMenuScene" type="Node2D" unique_id=591760362]
+[ext_resource type="Script" uid="uid://bdphp0upmm3fs" path="res://scenes/MainMenuScr/MainMenu.cs" id="1_jclvc"]
 
-[node name="MainMenu" type="Control" parent="." unique_id=1159849700]
+[node name="MainMenu" type="Control" unique_id=1159849700 node_paths=PackedStringArray("_playButton", "_optionsButton", "_quitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jclvc")
+_playButton = NodePath("VBoxContainer/PlayButton")
+_optionsButton = NodePath("VBoxContainer/OptionsButton")
+_quitButton = NodePath("VBoxContainer/QuitButton")
+_optionsScenePath = "uid://dmp5m3565d4q3"
+_gameScenePath = "uid://bsl4k4fhf421i"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=482385961]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=482385961]
 layout_mode = 0
 offset_left = 37.0
 offset_top = 339.0
@@ -18,19 +24,19 @@ offset_right = 1870.0
 offset_bottom = 1419.0
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/VBoxContainer" unique_id=2146158227]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=2146158227]
 layout_mode = 2
 accessibility_name = "accesLabel"
 
-[node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1368740720]
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1368740720]
 layout_mode = 2
 accessibility_name = "accesbilityLabel"
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1681548069]
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1681548069]
 layout_mode = 2
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=641305234]
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=641305234]
 layout_mode = 2
 text = "Quit"
