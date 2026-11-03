@@ -12,10 +12,10 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu" unique_id=482385961]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 1960.0
-offset_bottom = 1120.0
+offset_left = 37.0
+offset_top = 339.0
+offset_right = 1870.0
+offset_bottom = 1419.0
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/VBoxContainer" unique_id=2146158227]
