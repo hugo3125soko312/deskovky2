@@ -20,10 +20,11 @@ alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/VBoxContainer" unique_id=2146158227]
 layout_mode = 2
-accessibility_name = "namelabel"
+accessibility_name = "accesLabel"
 
 [node name="PlayButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1368740720]
 layout_mode = 2
+accessibility_name = "accesbilityLabel"
 text = "Play"
 
 [node name="OptionsButton" type="Button" parent="MainMenu/VBoxContainer" unique_id=1681548069]
