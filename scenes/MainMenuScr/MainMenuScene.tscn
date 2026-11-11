@@ -17,7 +17,7 @@ _playButton = NodePath("MarginContainer/VBoxContainer/PlayButton")
 _optionsButton = NodePath("MarginContainer/VBoxContainer/OptionsButton")
 _quitButton = NodePath("MarginContainer/VBoxContainer/QuitButton")
 _optionsScenePath = "uid://dmp5m3565d4q3"
-_gameScenePath = "uid://bsl4k4fhf421i"
+_gameScenePath = "uid://dbfruiga8apt7"
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1140535472]
 layout_mode = 0

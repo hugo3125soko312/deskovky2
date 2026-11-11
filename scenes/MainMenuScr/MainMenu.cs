@@ -12,7 +12,7 @@ public partial class MainMenu : Control
 	private string _optionsScenePath = "res://scenes/OptionsMenuScr/OptionsMenuScene.tscn";
 
 	[Export(PropertyHint.File, "*.tscn")] 
-	private string _gameScenePath = "res://scenes/GameScr/GameScene.tscn"; // Change this to your actual game scene!
+	private string _gameScenePath = "res://scenes/GameScr/Game.tscn";
 
 	public override void _Ready()
 	{

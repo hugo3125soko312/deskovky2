@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://dbfruiga8apt7"]
 
+[ext_resource type="Texture2D" uid="uid://kut4t70rpcpf" path="res://assets/background_texture.jpg" id="1_e83d6"]
+[ext_resource type="Script" uid="uid://dxwnaaujdoea7" path="res://scenes/GameScr/Card/PlayerHandLoader.cs" id="2_w6lpj"]
+[ext_resource type="PackedScene" uid="uid://bsl4k4fhf421i" path="res://scenes/GameScr/Card/Card.tscn" id="3_kpp0w"]
+
 [node name="GameNode" type="Node2D" unique_id=1195241168]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=758411768]
+layer = -1
+
+[node name="Parallax" type="Parallax2D" parent="BackgroundLayer" unique_id=1091629856]
+
+[node name="Background" type="Sprite2D" parent="BackgroundLayer/Parallax" unique_id=1130669061]
+texture = ExtResource("1_e83d6")
+
+[node name="PlayerDeckLayer" type="CanvasLayer" parent="." unique_id=1484009065]
+
+[node name="PlayerDeckGroup" type="Node2D" parent="PlayerDeckLayer" unique_id=1982022583]
+
+[node name="PlayerHandLayer" type="CanvasLayer" parent="." unique_id=599759679]
+
+[node name="PlayerHandGroup" type="Node2D" parent="PlayerHandLayer" unique_id=1946489370]
+position = Vector2(960, 920)
+script = ExtResource("2_w6lpj")
+CardTemplateScene = ExtResource("3_kpp0w")
