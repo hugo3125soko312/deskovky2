@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://bsl4k4fhf421i"]
 
-[node name="Game" type="Node2D" unique_id=1472682761]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_odgmk"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_e83d6"]
+sky_material = SubResource("ProceduralSkyMaterial_odgmk")
+
+[sub_resource type="Environment" id="Environment_w6lpj"]
+background_mode = 2
+sky = SubResource("Sky_e83d6")
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_se5c1"]
+
+[node name="Game3D" type="Node3D" unique_id=273890959]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1889063712]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 101.234, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=993510904]
+environment = SubResource("Environment_w6lpj")
+
+[node name="Plane" type="MeshInstance3D" parent="." unique_id=1821780318]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+layers = 524288
+mesh = SubResource("PlaneMesh_se5c1")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1733841467]
+transform = Transform3D(1, 0, 0, 0, 0.7028226, 0.7113651, 0, -0.7113651, 0.7028226, 0, 66.991455, 47.41118)
