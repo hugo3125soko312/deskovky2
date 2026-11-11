@@ -13,7 +13,8 @@ public partial class GlobalSettings : Node
 	{
 		{ "Fullscreen", true },
 		{ "Master Volume", 80.0f },
-		{ "Player Name", "Player" }
+		{ "Player Name", "Player" },
+		{ "Log Key Inputs", false } // <-- Added toggle here!
 	};
 
 	public override void _Ready()

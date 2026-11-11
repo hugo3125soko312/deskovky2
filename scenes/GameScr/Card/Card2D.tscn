@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsl4k4fhf421i"]
+
+[ext_resource type="Texture2D" uid="uid://cssf63uj5rdnb" path="res://assets/card_texture.jpg" id="1_2lgk5"]
+[ext_resource type="Texture2D" uid="uid://cwpd58ntao7xg" path="res://assets/icon.svg" id="2_7reyx"]
+
+[node name="CardNode2D" type="Node2D" unique_id=678582410]
+
+[node name="CardTemplate" type="Node2D" parent="." unique_id=1074118651]
+
+[node name="BackgroundSprite" type="Sprite2D" parent="CardTemplate" unique_id=487418578]
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_2lgk5")
+
+[node name="IconSprite" type="Sprite2D" parent="CardTemplate/BackgroundSprite" unique_id=656594128]
+scale = Vector2(9.090909, 9.090909)
+texture = ExtResource("2_7reyx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardTemplate" unique_id=601539835]
+offset_left = -84.0
+offset_top = -151.0
+offset_right = 84.0
+offset_bottom = -81.0
+
+[node name="Control" type="Control" parent="CardTemplate/VBoxContainer" unique_id=94321355]
+layout_mode = 2
+
+[node name="CostLabel" type="RichTextLabel" parent="CardTemplate/VBoxContainer/Control" unique_id=2108203181]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 62.0
+accessibility_name = "costLabel"
+text = "Cost"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TitleLabel" type="RichTextLabel" parent="CardTemplate/VBoxContainer/Control" unique_id=556857601]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 62.0
+accessibility_name = "title"
+text = "Title"
+horizontal_alignment = 1

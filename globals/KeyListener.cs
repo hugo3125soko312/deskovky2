@@ -2,7 +2,6 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-// Static access so you can call: Globals.Input...
 public static class Globals
 {
 	public static KeyListener Input => KeyListener.Instance;
@@ -19,6 +18,12 @@ public partial class KeyListener : Node
 	private readonly Dictionary<Key, ulong> _releasedProcessFrames = new();
 	private readonly Dictionary<Key, ulong> _releasedPhysicsFrames = new();
 
+	// Helper property to check if logging is enabled in GlobalSettings
+	private bool IsLoggingEnabled =>
+		GlobalSettings.Instance != null &&
+		GlobalSettings.Instance.Settings.TryGetValue("Log Key Inputs", out Variant val) &&
+		val.AsBool();
+
 	public override void _EnterTree()
 	{
 		if (Instance == null)
@@ -31,7 +36,6 @@ public partial class KeyListener : Node
 	{
 		if (@event is InputEventKey keyEvent && !keyEvent.Echo)
 		{
-			// Resolve Key (handles physical fallback for international layouts)
 			Key key = keyEvent.Keycode != Key.None ? keyEvent.Keycode : keyEvent.PhysicalKeycode;
 			string keyName = OS.GetKeycodeString(key);
 
@@ -40,32 +44,31 @@ public partial class KeyListener : Node
 
 			if (keyEvent.Pressed)
 			{
-				// KeyDown: starts the KeyHold state and triggers KeyPress for this frame
 				_heldKeys.Add(key);
 				_pressedProcessFrames[key] = currentProcFrame;
 				_pressedPhysicsFrames[key] = currentPhysFrame;
 
-				GD.Print($"[KeyListener] Key Down (Press & Hold Start): {key} ({keyName})");
+				// Log only if enabled in settings
+				if (IsLoggingEnabled)
+					GD.Print($"[KeyListener] Key Down (Press & Hold Start): {key} ({keyName})");
 			}
 			else
 			{
-				// KeyUp: stops the KeyHold state and triggers KeyUp for this frame
 				_heldKeys.Remove(key);
 				_releasedProcessFrames[key] = currentProcFrame;
 				_releasedPhysicsFrames[key] = currentPhysFrame;
 
-				GD.Print($"[KeyListener] Key Up (Released): {key} ({keyName})");
+				// Log only if enabled in settings
+				if (IsLoggingEnabled)
+					GD.Print($"[KeyListener] Key Up (Released): {key} ({keyName})");
 			}
 		}
 	}
 
 	// ==========================================
-	// CALLABLE API (Use through Globals.Input)
+	// CALLABLE API (Remains identical)
 	// ==========================================
 
-	/// <summary>
-	/// Returns true only on the initial frame the key was pressed down (Just Pressed).
-	/// </summary>
 	public bool KeyPress(Key key)
 	{
 		ulong proc = Engine.GetProcessFrames();
@@ -75,22 +78,13 @@ public partial class KeyListener : Node
 			|| (_pressedPhysicsFrames.TryGetValue(key, out ulong phFrame) && phFrame == phys);
 	}
 
-	/// <summary>
-	/// Alias for KeyPress.
-	/// </summary>
 	public bool KeyDown(Key key) => KeyPress(key);
 
-	/// <summary>
-	/// Returns true continuously every frame while the key is kept held down.
-	/// </summary>
 	public bool KeyHold(Key key)
 	{
 		return _heldKeys.Contains(key);
 	}
 
-	/// <summary>
-	/// Returns true only on the frame the key was released (Just Released).
-	/// </summary>
 	public bool KeyUp(Key key)
 	{
 		ulong proc = Engine.GetProcessFrames();
