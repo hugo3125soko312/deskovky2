@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://bsl4k4fhf421i"]
 
-[ext_resource type="Texture2D" uid="uid://cssf63uj5rdnb" path="res://assets/card_texture.jpg" id="1_2lgk5"]
-[ext_resource type="Texture2D" uid="uid://cwpd58ntao7xg" path="res://assets/icon.svg" id="2_7reyx"]
+[ext_resource type="Texture2D" uid="uid://cssf63uj5rdnb" path="res://assets/card_texture.jpg" id="1_p20mw"]
+[ext_resource type="Texture2D" uid="uid://cwpd58ntao7xg" path="res://assets/icon.svg" id="2_wdv1w"]
 
-[node name="CardNode2D" type="Node2D" unique_id=678582410]
+[node name="CardNode" type="Node2D" unique_id=678582410]
 
 [node name="CardTemplate" type="Node2D" parent="." unique_id=1074118651]
 
 [node name="BackgroundSprite" type="Sprite2D" parent="CardTemplate" unique_id=487418578]
 scale = Vector2(0.11, 0.11)
-texture = ExtResource("1_2lgk5")
+texture = ExtResource("1_p20mw")
 
 [node name="IconSprite" type="Sprite2D" parent="CardTemplate/BackgroundSprite" unique_id=656594128]
 scale = Vector2(9.090909, 9.090909)
-texture = ExtResource("2_7reyx")
+texture = ExtResource("2_wdv1w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CardTemplate" unique_id=601539835]
 offset_left = -84.0
