@@ -7,3 +7,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=616422917]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1025583146]
+layout_mode = 2
+accessibility_name = "pause"
+
+[node name="Disconnect" type="Button" parent="VBoxContainer" unique_id=1130407385]
+layout_mode = 2
+accessibility_name = "disconnect"
+
+[node name="GameInfo" type="Label" parent="VBoxContainer" unique_id=1739339842]
+layout_mode = 2
+accessibility_name = "gameInfo"
