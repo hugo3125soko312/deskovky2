@@ -18,6 +18,7 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 GlobalSettings="*uid://bvspu1whagvpg"
+KeyListener="*uid://bcv0f8o3ue22"
 
 [display]
 
